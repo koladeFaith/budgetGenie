@@ -19,7 +19,7 @@ export default function Home() {
         className={`fixed top-0 left-0 right-0 z-20 transition-all duration-300 ${
           scrolled ? "backdrop-blur-md bg-white/70 shadow-md" : "bg-white/90"
         }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+        <div className="max-w-7xl mx-auto px-4 sm-px-8 lg:px-16">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
               <h1 className="text-2xl font-bold text-blue-600">budgetGenie</h1>
@@ -123,7 +123,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="bg-linear-to-br from-blue-50 to-white pt-35 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+        <div className="max-w-7xl mx-auto px-4 sm-px-8 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -158,7 +158,7 @@ export default function Home() {
 
       {/* Features Section */}
       <section id="features" className=" py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+        <div className="max-w-7xl mx-auto px-4 sm-px-8 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Powerful Features for Smart Budgeting
@@ -266,7 +266,7 @@ export default function Home() {
 
       {/* How It Works */}
       <section id="how-it-works" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+        <div className="max-w-7xl mx-auto px-4 sm-px-8 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               How It Works
@@ -318,7 +318,7 @@ export default function Home() {
 
       {/* AI Feature Highlight */}
       <section className="py-20 bg-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+        <div className="max-w-7xl mx-auto px-4 sm-px-8 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -394,7 +394,7 @@ export default function Home() {
 
       {/* Call to Action */}
       <section className="py-20 bg-blue-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-16 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm-px-8 lg:px-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Start Managing Your Money Today
           </h2>
@@ -410,7 +410,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer id="contact" className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+        <div className="max-w-7xl mx-auto px-4 sm-px-8 lg:px-16">
           <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400">
               &copy; budgetGenie. All rights reserved.
