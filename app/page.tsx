@@ -25,7 +25,7 @@ export default function Home() {
               <h1 className="text-2xl font-bold text-blue-600">budgetGenie</h1>
             </div>
 
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden lg:flex space-x-8">
               <a href="#features" className="text-gray-700 hover:text-blue-600">
                 Features
               </a>
@@ -39,7 +39,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="hidden md:flex space-x-4">
+            <div className="hidden lg:flex space-x-4">
               <button className="text-blue-600 border border-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 cursor-pointer">
                 Login
               </button>
@@ -50,7 +50,7 @@ export default function Home() {
 
             <button
               type="button"
-              className="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-700 hover:bg-gray-100"
+              className="lg:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-700 hover:bg-gray-100"
               aria-label="Toggle menu"
               onClick={() => setIsMenuOpen((prev) => !prev)}>
               {isMenuOpen ? (
@@ -84,34 +84,25 @@ export default function Home() {
           </div>
 
           {isMenuOpen && (
-            <div className="md:hidden border-t border-gray-200 bg-white/90 backdrop-blur-md">
-              <div className="px-4 py-5 space-y-2">
+            <div className="lg:hidden border-t border-gray-200 bg-white/90 backdrop-blur-md">
+              <div className="px-4 py-5 space-y-3">
                 <a
                   href="#features"
-                  className="flex items-center gap-2 text-gray-700 hover:text-blue-600"
+                  className="flex items-center gap-2 px-4 py-3 text-gray-700 bg-blue-50 rounded-lg hover:bg-blue-100 hover:text-blue-600 transition-all duration-200 cursor-pointer"
                   onClick={() => setIsMenuOpen(false)}>
-                  <span className="w-5 h-5 flex items-center justify-center rounded bg-blue-100 text-blue-600">
-                    F
-                  </span>
                   Features
                 </a>
                 <a
                   href="#how-it-works"
-                  className="flex items-center gap-2 text-gray-700 hover:text-blue-600"
+                  className="flex items-center gap-2 px-4 py-3 text-gray-700 bg-blue-50 rounded-lg hover:bg-blue-100 hover:text-blue-600 transition-all duration-200 cursor-pointer"
                   onClick={() => setIsMenuOpen(false)}>
-                  <span className="w-5 h-5 flex items-center justify-center rounded bg-blue-100 text-blue-600">
-                    H
-                  </span>
                   How It Works
                 </a>
 
                 <a
                   href="#contact"
-                  className="flex items-center gap-2 text-gray-700 hover:text-blue-600"
+                  className="flex items-center gap-2 px-4 py-3 text-gray-700 bg-blue-50 rounded-lg hover:bg-blue-100 hover:text-blue-600 transition-all duration-200 cursor-pointer"
                   onClick={() => setIsMenuOpen(false)}>
-                  <span className="w-5 h-5 flex items-center justify-center rounded bg-blue-100 text-blue-600">
-                    C
-                  </span>
                   Contact
                 </a>
                 <div className="mt-4 flex flex-col gap-3">
@@ -131,6 +122,13 @@ export default function Home() {
           )}
         </div>
       </nav>
+
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 z-10 bg-black/20 backdrop-blur-sm"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
 
       {/* Hero Section */}
       <section className="bg-linear-to-br from-blue-50 to-white pt-35 pb-20">
@@ -152,11 +150,15 @@ export default function Home() {
               </div>
             </div>
             <div className="flex justify-center">
-              <div className="bg-white p-8 rounded-2xl shadow-2xl border border-gray-200">
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
                 {/* Mockup Dashboard */}
-                <div className="w-80 h-60 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <span className="text-gray-500">Dashboard Preview</span>
-                </div>
+                <Image
+                  src="/Screenshot 2026-03-18 130118.png"
+                  alt="Dashboard Preview"
+                  width={450}
+                  height={240}
+                  className="rounded-lg object-cover w-full"
+                />
               </div>
             </div>
           </div>
@@ -164,7 +166,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 bg-gray-50">
+      <section id="features" className="pt-12 py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -385,12 +387,14 @@ export default function Home() {
               </ul>
             </div>
             <div className="flex justify-center">
-              <div className="bg-white p-8 rounded-2xl shadow-2xl border border-gray-200">
-                <div className="w-80 h-60 bg-linear-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center">
-                  <span className="text-blue-800 font-semibold">
-                    AI Analysis Dashboard
-                  </span>
-                </div>
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                <Image
+                  src="/Screenshot 2026-03-18 130153.png"
+                  alt="Dashboard Preview"
+                  width={450}
+                  height={240}
+                  className="rounded-lg object-cover w-full"
+                />
               </div>
             </div>
           </div>
