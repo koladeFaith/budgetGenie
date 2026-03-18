@@ -22,7 +22,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm-px-8 lg:px-16">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-blue-600">budgetGenie</h1>
+              <button className="text-2xl font-bold text-blue-600">budgetGenie</button>
             </div>
 
             <div className="hidden lg:flex space-x-8">
