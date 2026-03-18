@@ -82,7 +82,7 @@ export default function Home() {
 
           {isMenuOpen && (
             <div className="lg:hidden border-t border-gray-200 bg-white/90 backdrop-blur-md">
-              <div className="px-4 py-5 space-y-3">
+              <div className="px-4 py-8 space-y-4">
                 <a
                   href="#features"
                   className="flex items-center gap-2 px-4 py-3 text-gray-700 bg-blue-50 rounded-lg hover:bg-blue-100 hover:text-blue-600 transition-all duration-200 cursor-pointer"
