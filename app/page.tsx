@@ -1,15 +1,30 @@
+"use client";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white text-gray-900">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white shadow-sm border-b border-gray-200 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav
+        className={`fixed top-0 left-0 right-0 z-20 transition-all duration-300 ${
+          scrolled ? "backdrop-blur-md bg-white/70 shadow-md" : "bg-white/90"
+        }`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-blue-600">BudgetGenie</h1>
+              <h1 className="text-2xl font-bold text-blue-600">budgetGenie</h1>
             </div>
+
             <div className="hidden md:flex space-x-8">
               <a href="#features" className="text-gray-700 hover:text-blue-600">
                 Features
@@ -23,21 +38,103 @@ export default function Home() {
                 Contact
               </a>
             </div>
-            <div className="flex space-x-4">
-              <button className="text-blue-600 border border-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50">
+
+            <div className="hidden md:flex space-x-4">
+              <button className="text-blue-600 border border-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 cursor-pointer">
                 Login
               </button>
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+              <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer">
                 Sign Up
               </button>
             </div>
+
+            <button
+              type="button"
+              className="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-700 hover:bg-gray-100"
+              aria-label="Toggle menu"
+              onClick={() => setIsMenuOpen((prev) => !prev)}>
+              {isMenuOpen ? (
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              )}
+            </button>
           </div>
+
+          {isMenuOpen && (
+            <div className="md:hidden border-t border-gray-200 bg-white/90 backdrop-blur-md">
+              <div className="px-4 py-5 space-y-2">
+                <a
+                  href="#features"
+                  className="flex items-center gap-2 text-gray-700 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}>
+                  <span className="w-5 h-5 flex items-center justify-center rounded bg-blue-100 text-blue-600">
+                    F
+                  </span>
+                  Features
+                </a>
+                <a
+                  href="#how-it-works"
+                  className="flex items-center gap-2 text-gray-700 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}>
+                  <span className="w-5 h-5 flex items-center justify-center rounded bg-blue-100 text-blue-600">
+                    H
+                  </span>
+                  How It Works
+                </a>
+
+                <a
+                  href="#contact"
+                  className="flex items-center gap-2 text-gray-700 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}>
+                  <span className="w-5 h-5 flex items-center justify-center rounded bg-blue-100 text-blue-600">
+                    C
+                  </span>
+                  Contact
+                </a>
+                <div className="mt-4 flex flex-col gap-3">
+                  <button
+                    className="w-full text-blue-600 border border-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 cursor-pointer"
+                    onClick={() => setIsMenuOpen(false)}>
+                    Login
+                  </button>
+                  <button
+                    className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer"
+                    onClick={() => setIsMenuOpen(false)}>
+                    Sign Up
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-linear-to-br from-blue-50 to-white pt-24 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-linear-to-br from-blue-50 to-white pt-35 pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -49,7 +146,7 @@ export default function Home() {
                 financial goals effortlessly.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors">
+                <button className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors cursor-pointer">
                   Get Started. It's free
                 </button>
               </div>
@@ -68,7 +165,7 @@ export default function Home() {
 
       {/* Features Section */}
       <section id="features" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Powerful Features for Smart Budgeting
@@ -176,7 +273,7 @@ export default function Home() {
 
       {/* How It Works */}
       <section id="how-it-works" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               How It Works
@@ -228,7 +325,7 @@ export default function Home() {
 
       {/* AI Feature Highlight */}
       <section className="py-20 bg-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -302,12 +399,12 @@ export default function Home() {
 
       {/* Call to Action */}
       <section className="py-20 bg-blue-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Start Managing Your Money Today
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Join BudgetGenie and take the first step towards financial freedom.
+            Join budgetGenie and take the first step towards financial freedom.
             It's free to get started!
           </p>
           <button className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
@@ -318,10 +415,10 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
           <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400">
-              &copy; 2024 BudgetGenie. All rights reserved.
+              &copy; budgetGenie. All rights reserved.
             </p>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-white">
