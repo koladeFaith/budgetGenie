@@ -145,7 +145,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors cursor-pointer">
-                  Get Started. It's free
+                  Get Started. It&apos;s free
                 </button>
               </div>
             </div>
@@ -409,7 +409,7 @@ export default function Home() {
           </h2>
           <p className="text-xl text-blue-100 mb-8">
             Join budgetGenie and take the first step towards financial freedom.
-            It's free to get started!
+            It&apos;s free to get started!
           </p>
           <button className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
             Start Managing Your Money Today
