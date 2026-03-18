@@ -34,9 +34,6 @@ export default function Home() {
                 className="text-gray-700 hover:text-blue-600">
                 How It Works
               </a>
-              <a href="#contact" className="text-gray-700 hover:text-blue-600">
-                Contact
-              </a>
             </div>
 
             <div className="hidden lg:flex space-x-4">
@@ -99,12 +96,6 @@ export default function Home() {
                   How It Works
                 </a>
 
-                <a
-                  href="#contact"
-                  className="flex items-center gap-2 px-4 py-3 text-gray-700 bg-blue-50 rounded-lg hover:bg-blue-100 hover:text-blue-600 transition-all duration-200 cursor-pointer"
-                  onClick={() => setIsMenuOpen(false)}>
-                  Contact
-                </a>
                 <div className="mt-4 flex flex-col gap-3">
                   <button
                     className="w-full text-blue-600 border border-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 cursor-pointer"
@@ -166,7 +157,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="pt-12 py-16 bg-gray-50">
+      <section id="features" className=" py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -418,7 +409,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer id="contact" className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
           <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400">
