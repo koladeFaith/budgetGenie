@@ -13,7 +13,7 @@ export default function Login() {
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
         {/* Logo / Title */}
         <div className="text-center mb-6">
-          <h1 className="text-3xl font-bold text-blue-600">BudgetGenie</h1>
+          <h1 className="text-3xl font-bold text-blue-600">budgetGenie</h1>
           <p className="text-gray-500 text-sm mt-1">
             Welcome back! Sign in to continue
           </p>
