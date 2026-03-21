@@ -23,7 +23,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm-px-8 lg:px-16">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
-              <button className="text-2xl font-bold text-blue-600">budgetGenie</button>
+              <button className="text-2xl font-bold text-blue-600">
+                budgetGenie
+              </button>
             </div>
 
             <div className="hidden lg:flex space-x-8">
@@ -38,10 +40,14 @@ export default function Home() {
             </div>
 
             <div className="hidden lg:flex space-x-4">
-              <button className="text-blue-600 border border-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 cursor-pointer">
+              <Link
+                href="/login"
+                className="text-blue-600 border border-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 cursor-pointer">
                 Login
-              </button>
-              <Link href="/signup" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer">
+              </Link>
+              <Link
+                href="/signup"
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer">
                 Sign Up
               </Link>
             </div>
@@ -98,11 +104,12 @@ export default function Home() {
                 </a>
 
                 <div className="mt-4 flex flex-col gap-3">
-                  <button
+                  <Link
+                    href="/login"
                     className="w-full text-blue-600 border border-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 cursor-pointer"
                     onClick={() => setIsMenuOpen(false)}>
                     Login
-                  </button>
+                  </Link>
                   <Link
                     href="/signup"
                     className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer"
@@ -404,7 +411,9 @@ export default function Home() {
             Join budgetGenie and take the first step towards financial freedom.
             It&apos;s free to get started!
           </p>
-          <Link href="/signup" className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
+          <Link
+            href="/signup"
+            className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
             Start Managing Your Money Today
           </Link>
         </div>
