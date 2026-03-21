@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -40,9 +41,9 @@ export default function Home() {
               <button className="text-blue-600 border border-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 cursor-pointer">
                 Login
               </button>
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer">
+              <Link href="/signup" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer">
                 Sign Up
-              </button>
+              </Link>
             </div>
 
             <button
@@ -102,11 +103,12 @@ export default function Home() {
                     onClick={() => setIsMenuOpen(false)}>
                     Login
                   </button>
-                  <button
+                  <Link
+                    href="/signup"
                     className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer"
                     onClick={() => setIsMenuOpen(false)}>
                     Sign Up
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -130,7 +132,7 @@ export default function Home() {
                 Take Control of Your Finances with Smart AI Budgeting
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                BudgetGenie uses AI to help young adults in urban communities
+                budgetGenie uses AI to help young adults in urban communities
                 track expenses, get personalized budget suggestions, and achieve
                 financial goals effortlessly.
               </p>
@@ -402,9 +404,9 @@ export default function Home() {
             Join budgetGenie and take the first step towards financial freedom.
             It&apos;s free to get started!
           </p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
+          <Link href="/signup" className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
             Start Managing Your Money Today
-          </button>
+          </Link>
         </div>
       </section>
 
