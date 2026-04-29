@@ -132,14 +132,16 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="bg-linear-to-br from-blue-50 to-white pt-35 pb-20">
-        <div className="flex items-center justify-center gap-2 rounded-full border border-border bg-white px-4 py-1.5 text-xs font-medium text-gray-600 mb-6 text-center">
-          <span className="h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
-          Built for urban Nigeria · Naira-first
+        <div className="flex items-center justify-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-1.5 text-xs font-medium text-gray-600 mb-6 ">
+            <span className="h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
+            Built for urban Nigeria · Naira-first
+          </div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm-px-8 lg:px-16">
+        <div className="max-w-7xl mx-auto px-4 sm-px-8 lg:px-16 pt-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 ">
                 Take Control of Your Naira with Smart AI Budgeting
               </h1>
               <p className="text-xl text-gray-600 mb-8">
