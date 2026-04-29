@@ -132,16 +132,20 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="bg-linear-to-br from-blue-50 to-white pt-35 pb-20">
+        <div className="flex items-center justify-center gap-2 rounded-full border border-border bg-white px-4 py-1.5 text-xs font-medium text-gray-600 mb-6 text-center">
+          <span className="h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
+          Built for urban Nigeria · Naira-first
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm-px-8 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Take Control of Your Finances with Smart AI Budgeting
+                Take Control of Your Naira with Smart AI Budgeting
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                budgetGenie uses AI to help young adults in urban communities
-                track expenses, get personalized budget suggestions, and achieve
-                financial goals effortlessly.
+                budgetGenie tracks your income and spending, flags unusual
+                transactions, predicts next month&apos;s expenses, and gives you
+                smart insights — all in ₦.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -326,7 +330,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
 
       {/* Footer */}
       <footer id="contact" className="bg-gray-900 text-white py-12">
