@@ -1,8 +1,8 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -14,27 +14,27 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen  text-gray-900">
       {/* Navigation */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-20 transition-all duration-300 ${
-          scrolled ? "backdrop-blur-md bg-white/70 shadow-md" : "bg-white/90"
+        className={`fixed top-0 left-0 right-0 z-20 transition-all duration-300 border-b border-border ${
+          scrolled ? "backdrop-blur-md bg-teal/70 shadow-md" : "bg-teal/90"
         }`}>
         <div className="max-w-7xl mx-auto px-4 sm-px-8 lg:px-16">
           <div className="flex justify-between items-center py-4">
-            <div className="flex items-center">
-              <button className="text-2xl font-bold text-blue-600">
+            <div className="flex items-center gap-2">
+              <span className="font-extrabold text-2xl text-teal-600">
                 budgetGenie
-              </button>
+              </span>
             </div>
 
             <div className="hidden lg:flex space-x-8">
-              <a href="#features" className="text-gray-700 hover:text-blue-600">
+              <a href="#features" className="text-gray-700 hover:text-teal-600">
                 Features
               </a>
               <a
                 href="#how-it-works"
-                className="text-gray-700 hover:text-blue-600">
+                className="text-gray-700 hover:text-teal-600">
                 How It Works
               </a>
             </div>
@@ -42,18 +42,17 @@ export default function Home() {
             <div className="hidden lg:flex space-x-4">
               <Link
                 href="/login"
-                className="text-blue-600 border border-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 cursor-pointer">
+                className="text-teal-600 border border-teal-600 px-4 py-2 rounded-lg hover:bg-teal-50 cursor-pointer">
                 Login
               </Link>
               <Link
                 href="/signup"
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer">
+                className="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 cursor-pointer">
                 Sign Up
               </Link>
             </div>
 
-            <button
-              type="button"
+            <Button
               className="lg:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-700 hover:bg-gray-100"
               aria-label="Toggle menu"
               onClick={() => setIsMenuOpen((prev) => !prev)}>
@@ -84,7 +83,7 @@ export default function Home() {
                   />
                 </svg>
               )}
-            </button>
+            </Button>
           </div>
 
           {isMenuOpen && (
@@ -92,13 +91,13 @@ export default function Home() {
               <div className="px-4 py-8 space-y-4">
                 <a
                   href="#features"
-                  className="flex items-center gap-2 px-4 py-3 text-gray-700 bg-blue-50 rounded-lg hover:bg-blue-100 hover:text-blue-600 transition-all duration-200 cursor-pointer"
+                  className="flex items-center gap-2 px-4 py-3 text-gray-700 bg-teal-50 rounded-lg hover:bg-teal-100 hover:text-teal-600 transition-all duration-200 cursor-pointer"
                   onClick={() => setIsMenuOpen(false)}>
                   Features
                 </a>
                 <a
                   href="#how-it-works"
-                  className="flex items-center gap-2 px-4 py-3 text-gray-700 bg-blue-50 rounded-lg hover:bg-blue-100 hover:text-blue-600 transition-all duration-200 cursor-pointer"
+                  className="flex items-center gap-2 px-4 py-3 text-gray-700 bg-teal-50 rounded-lg hover:bg-teal-100 hover:text-teal-600 transition-all duration-200 cursor-pointer"
                   onClick={() => setIsMenuOpen(false)}>
                   How It Works
                 </a>
@@ -106,13 +105,13 @@ export default function Home() {
                 <div className="mt-4 flex flex-col gap-3">
                   <Link
                     href="/login"
-                    className="w-full text-blue-600 border border-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 cursor-pointer"
+                    className="w-full text-teal-600 border border-teal-600 px-4 py-2 rounded-lg hover:bg-teal-50 cursor-pointer"
                     onClick={() => setIsMenuOpen(false)}>
                     Login
                   </Link>
                   <Link
                     href="/signup"
-                    className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer"
+                    className="w-full bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 cursor-pointer"
                     onClick={() => setIsMenuOpen(false)}>
                     Sign Up
                   </Link>
@@ -131,10 +130,10 @@ export default function Home() {
       )}
 
       {/* Hero Section */}
-      <section className="bg-linear-to-br from-blue-50 to-white pt-25 lg:pt-35 pb-20">
+      <section className="bg-linear-to-br from-teal-50 to-white pt-22 lg:pt-35 pb-20">
         <div className="flex items-center justify-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-1.5 text-xs font-medium text-gray-600 mb-6 ">
-            <span className="h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
+            <span className="h-2 w-2 rounded-full bg-teal-600 animate-pulse" />
             Built for urban Nigeria · Naira-first
           </div>
         </div>
@@ -152,7 +151,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/signup"
-                  className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors cursor-pointer">
+                  className="bg-teal-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-teal-700 transition-colors cursor-pointer">
                   Get Started. It&apos;s free
                 </Link>
               </div>
@@ -186,9 +185,9 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
                 <svg
-                  className="w-6 h-6 text-blue-600"
+                  className="w-6 h-6 text-teal-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24">
@@ -209,9 +208,9 @@ export default function Home() {
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
                 <svg
-                  className="w-6 h-6 text-blue-600"
+                  className="w-6 h-6 text-teal-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24">
@@ -232,9 +231,9 @@ export default function Home() {
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
                 <svg
-                  className="w-6 h-6 text-blue-600"
+                  className="w-6 h-6 text-teal-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24">
@@ -255,9 +254,9 @@ export default function Home() {
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
                 <svg
-                  className="w-6 h-6 text-blue-600"
+                  className="w-6 h-6 text-teal-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24">
@@ -282,7 +281,7 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-20 bg-white">
+      <section id="how-it-works" className="py-15 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm-px-8 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -294,7 +293,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+              <div className="w-16 h-16 bg-teal-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 1
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -306,7 +305,7 @@ export default function Home() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+              <div className="w-16 h-16 bg-teal-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 2
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -318,7 +317,7 @@ export default function Home() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+              <div className="w-16 h-16 bg-teal-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 3
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -334,9 +333,9 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-gray-900 text-white py-12">
+      <footer id="contact" className="bg-gray-900 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm-px-8 lg:px-16">
-          <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="border-t border-gray-800 mt-6 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400">
               &copy; budgetGenie. All rights reserved.
             </p>

@@ -1,14 +1,15 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { Eye, EyeOff, Sparkles } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="min-h-screen flex">
       <div className="hidden lg:flex flex-1 bg-gradient-brand items-center justify-center p-12 relative overflow-hidden">
-        <div className="absolute inset-0  bg-teal-100 " />
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_70%_30%,_white,_transparent_50%)]" />
         <div className="relative max-w-md text-white">
           <div className="flex items-center gap-2 mb-6">
             <Sparkles className="h-8 w-8" />
@@ -26,10 +27,10 @@ export default function Signup() {
         </div>
       </div>
       <div className="flex-1 flex items-center justify-center p-6">
-        <div className="w-full max-w-sm">
+        <div className="w-full max-w-sm bg-white rounded-3xl shadow-xl p-8">
           <div className="lg:hidden flex items-center gap-2 mb-8">
-            <div className="h-9 w-9 rounded-lg  flex items-center justify-center">
-              <Sparkles className=" h-5 w-5 text-white" />
+            <div className="h-9 w-9 rounded-lg bg-gradient-brand flex items-center justify-center">
+              <Sparkles className="h-5 w-5 text-white" />
             </div>
             <span className="font-bold text-lg">KoboWise</span>
           </div>
@@ -40,30 +41,42 @@ export default function Signup() {
 
           <form className="mt-6 space-y-4">
             <div>
-              <label htmlFor="full_name">Full name</label>
-              <input id="full_name" className="mt-1" />
+              <label htmlFor="full_name" className="block text-sm text-muted-foreground mb-1">Full name</label>
+              <Input id="full_name" placeholder="Enter your full name" className="mt-1" />
             </div>
             <div>
-              <label htmlFor="email">Email</label>
-              <input
+              <label htmlFor="email" className="block text-sm text-muted-foreground mb-1">Email</label>
+              <Input
                 id="email"
                 type="email"
+                placeholder="example@email.com"
                 autoComplete="email"
                 className="mt-1"
               />
             </div>
             <div>
-              <label htmlFor="password">Password</label>
-              <input
-                id="password"
-                type="password"
-                autoComplete="new-password"
-                className="mt-1"
-              />
+              <label htmlFor="password" className="block text-sm text-muted-foreground mb-1">Password</label>
+              <div className="relative">
+                <Input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Create a password"
+                  autoComplete="new-password"
+                  className="mt-1 pr-10"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-gray-700">
+                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
             </div>
-            <button
+            <Button
               type="submit"
-              className="w-full bg-navy hover:bg-navy/90 text-navy-foreground"></button>
+              className="w-full bg-teal-600 hover:bg-teal-700 text-white py-2 rounded-lg font-semibold transition">
+              Create account
+            </Button>
           </form>
 
           <div className="my-4 flex items-center gap-3 text-xs text-muted-foreground">
@@ -71,8 +84,8 @@ export default function Signup() {
             <div className="h-px flex-1 bg-border" />
           </div>
 
-          <button className="w-full">
-            <svg className="h-4 w-4 mr-2" viewBox="0 0 24 24">
+          <Button className="w-full flex items-center justify-center gap-3 border border-gray-200 rounded-lg py-2 hover:bg-gray-50 transition">
+            <svg className="h-4 w-4" viewBox="0 0 24 24">
               <path
                 fill="#4285F4"
                 d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -91,13 +104,13 @@ export default function Signup() {
               />
             </svg>
             Sign up with Google
-          </button>
+          </Button>
           {/* Footer */}
           <div className="text-center text-sm text-gray-500 mt-6">
             Already have an account?
             <Link
               href="/login"
-              className="text-blue-600 ml-1 cursor-pointer hover:underline">
+              className="text-teal-600 ml-1 cursor-pointer hover:underline">
               Sign In
             </Link>
           </div>

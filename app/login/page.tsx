@@ -3,17 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-blue-100 via-blue-50 to-blue-200 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-teal-100 via-teal-50 to-teal-200 px-4">
       {/* Card */}
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
         {/* Logo / Title */}
         <div className="text-center mb-6">
-          <h1 className="text-3xl font-bold text-blue-600">budgetGenie</h1>
+          <h1 className="text-3xl font-bold text-teal-600">budgetGenie</h1>
           <p className="text-gray-500 text-sm mt-1">
             Welcome back! Sign in to continue
           </p>
@@ -46,10 +48,9 @@ export default function Login() {
             <label className="block text-sm text-gray-600 mb-1">
               Email Address
             </label>
-            <input
+            <Input
               type="email"
               placeholder="example@email.com"
-              className="w-full border border-gray-200 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
             />
           </div>
 
@@ -58,10 +59,10 @@ export default function Login() {
             <label className="block text-sm text-gray-600 mb-1">Password</label>
 
             <div className="relative w-full">
-              <input
+              <Input
                 type={showPassword ? "text" : "password"}
                 placeholder="********"
-                className="w-full border border-gray-200 rounded-lg px-4 py-2 pr-10 focus:ring-2 focus:ring-blue-500 outline-none"
+                className="pr-10"
               />
 
               <button
@@ -75,24 +76,24 @@ export default function Login() {
 
           {/* Forgot Password */}
           <div className="flex justify-end">
-            <Link href="#" className="text-xs text-blue-600 hover:underline">
+            <Link href="#" className="text-xs text-teal-600 hover:underline">
               Forgot Password?
             </Link>
           </div>
 
           {/* Sign In Button */}
-          <button
+          <Button
             type="button"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-semibold transition">
+            className="w-full bg-teal-600 hover:bg-teal-700 text-white py-2 rounded-lg font-semibold transition">
             Sign In
-          </button>
+          </Button>
         </form>
 
         {/* Footer */}
         <div className="text-center text-sm text-gray-500 mt-6">
           Don’t have an account?
           <Link href="/signup" className="text-blue-600 ml-1 hover:underline">
-            Sign Up
+            Sign Upteal
           </Link>
         </div>
       </div>
