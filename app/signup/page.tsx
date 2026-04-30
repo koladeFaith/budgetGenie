@@ -2,18 +2,19 @@
 import Link from "next/link";
 import { Eye, EyeOff, Sparkles } from "lucide-react";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   return (
-    <div className="min-h-screen flex">
-      <div className="hidden lg:flex flex-1 bg-gradient-brand items-center justify-center p-12 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_70%_30%,_white,_transparent_50%)]" />
+    <div className=" min-h-screen flex">
+      <div className="  hidden lg:flex flex-1 bg-gradient-brand items-center justify-center p-12 relative overflow-hidden">
+        <div className="absolute inset-0  bg-linear-to-br to-teal-600 from-gray-700" />
         <div className="relative max-w-md text-white">
           <div className="flex items-center gap-2 mb-6">
             <Sparkles className="h-8 w-8" />
-            <span className="text-2xl font-bold">KoboWise</span>
+            <span className="text-2xl font-bold">budgetGenie</span>
           </div>
           <h2 className="text-4xl font-bold leading-tight">
             Start your journey to financial clarity.
@@ -26,55 +27,67 @@ export default function Signup() {
           </ul>
         </div>
       </div>
-      <div className="flex-1 flex items-center justify-center p-6">
-        <div className="w-full max-w-sm bg-white rounded-3xl shadow-xl p-8">
+      <div className="flex-1 flex items-center justify-center p-6 bg-teal-50">
+        <div className="w-full max-w-sm px-4  p-8">
           <div className="lg:hidden flex items-center gap-2 mb-8">
-            <div className="h-9 w-9 rounded-lg bg-gradient-brand flex items-center justify-center">
-              <Sparkles className="h-5 w-5 text-white" />
+            <div className="flex items-center gap-2 ">
+              <Sparkles className="h-8 w-8 bg-teal-700 p-2 text-white  rounded-lg" />
+              <span className="text-2xl font-bold">budgetGenie</span>
             </div>
-            <span className="font-bold text-lg">KoboWise</span>
           </div>
-          <h1 className="text-2xl font-bold">Create your account</h1>
-          <p className="text-sm text-muted-foreground mt-1">
+          <h1 className="text-[28px] font-extrabold text-gray-900">
+            Create your account
+          </h1>
+          <p className=" text-[16px] text-muted-foreground mt-1">
             Free to start. No credit card required.
           </p>
 
-          <form className="mt-6 space-y-4">
+          <form className="mt-6 space-y-4 ">
             <div>
-              <label htmlFor="full_name" className="block text-sm text-muted-foreground mb-1">Full name</label>
-              <Input id="full_name" placeholder="Enter your full name" className="mt-1" />
+              <Label
+                htmlFor="full_name"
+                className="block text-[17px]  mb-1 text-gray-900">
+                Full name
+              </Label>
+              <Input id="full_name" className="mt-1 shadow-sm " />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm text-muted-foreground mb-1">Email</label>
+              <Label
+                htmlFor="email"
+                className="block text-[17px]  mb-1 text-gray-900">
+                Email
+              </Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="example@email.com"
                 autoComplete="email"
-                className="mt-1"
+                className="mt-1 shadow-sm "
               />
             </div>
             <div>
-              <label htmlFor="password" className="block text-sm text-muted-foreground mb-1">Password</label>
+              <Label
+                htmlFor="password"
+                className="block text-[17px]  mb-1 text-gray-900">
+                Password
+              </Label>
               <div className="relative">
                 <Input
                   id="password"
                   type={showPassword ? "text" : "password"}
-                  placeholder="Create a password"
                   autoComplete="new-password"
-                  className="mt-1 pr-10"
+                  className="mt-1 pr-10 shadow-sm "
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-gray-700">
+                  className="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-gray-700 cursor-pointer">
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
             </div>
             <Button
               type="submit"
-              className="w-full bg-teal-600 hover:bg-teal-700 text-white py-2 rounded-lg font-semibold transition">
+              className="w-full  bg-gray-900 hover:bg-gray-800 text-white py-4.5 rounded-lg font-semibold transition cursor-pointer">
               Create account
             </Button>
           </form>
@@ -84,7 +97,7 @@ export default function Signup() {
             <div className="h-px flex-1 bg-border" />
           </div>
 
-          <Button className="w-full flex items-center justify-center gap-3 border border-gray-200 rounded-lg py-2 hover:bg-gray-50 transition">
+          <Button className="w-full  py-4.5  flex items-center justify-center gap-3 border border-gray-200 rounded-lg  shadow-sm transition bg-white/50 text-gray-900 text-[16px] font-semibold cursor-pointer">
             <svg className="h-4 w-4" viewBox="0 0 24 24">
               <path
                 fill="#4285F4"
