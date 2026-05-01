@@ -27,7 +27,6 @@ export default function Home() {
               <Sparkles className="h-8 w-8 bg-teal-700 p-2 text-white  rounded-lg" />
               <span className="text-2xl font-bold">budgetGenie</span>
             </div>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis animi porro molestias qui, nihil consequuntur impedit iure vitae in! Illo ex magni nihil culpa eius sequi consequuntur sint qui blanditiis?
             <div className="hidden lg:flex space-x-8">
               <a href="#features" className="text-gray-700 hover:text-teal-600">
                 Features
