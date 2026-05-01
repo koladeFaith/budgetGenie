@@ -25,7 +25,7 @@ export default function Home() {
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center gap-2 ">
               <Sparkles className="h-8 w-8 bg-teal-700 p-2 text-white  rounded-lg" />
-              <span className="text-2xl font-bold">budgetGenie</span>
+              <span className="text-xl md:text-2xl font-bold">budgetGenie</span>
             </div>
             <div className="hidden lg:flex space-x-8">
               <a href="#features" className="text-gray-700 hover:text-teal-600">
@@ -51,7 +51,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <Button
+            <button
               className="lg:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-700 hover:bg-gray-100 cursor-pointer"
               aria-label="Toggle menu"
               onClick={() => setIsMenuOpen((prev) => !prev)}>
@@ -82,11 +82,11 @@ export default function Home() {
                   />
                 </svg>
               )}
-            </Button>
+            </button>
           </div>
 
           {isMenuOpen && (
-            <div className="lg:hidden border-t border-gray-200 bg-white/90 backdrop-blur-md">
+            <div className="lg:hidden border-t rounded-lg border-gray-200 bg-white/50 backdrop-blur-md">
               <div className="px-4 py-8 space-y-4">
                 <a
                   href="#features"
@@ -139,10 +139,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm-px-8 lg:px-16 lg:pt-10 ">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 ">
+              <h1 className="text-[35px] leading-tight md:text-5xl font-bold text-gray-900 mb-6 ">
                 Take Control of Your Naira with Smart AI Budgeting
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-lg md:text-xl  text-gray-600 mb-8 leading-tight">
                 budgetGenie tracks your income and spending, flags unusual
                 transactions, predicts next month&apos;s expenses, and gives you
                 smart insights — all in ₦.
@@ -150,7 +150,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/signup"
-                  className="bg-teal-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-teal-700 transition-colors cursor-pointer">
+                  className="bg-teal-600   text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-teal-700 transition-colors cursor-pointer">
                   Get Started. It&apos;s free
                 </Link>
               </div>
@@ -332,9 +332,9 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-gray-900 text-white py-6">
+      <footer id="contact" className="bg-gray-900 text-white py-4">
         <div className="max-w-7xl mx-auto px-4 sm-px-8 lg:px-16">
-          <div className="border-t border-gray-800 mt-6 pt-8 text-center text-sm text-muted-foreground ">
+          <div className="border-t border-gray-800 text-white/60  mt-6 pt-3 pb-4 text-center text-sm  ">
             © {new Date().getFullYear()} budgetGenie · Built with care for
             Nigerian urban life
           </div>
