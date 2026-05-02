@@ -275,7 +275,7 @@ export default function Home() {
                 security.
               </p>
             </div>
-          </div> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium impedit dolorum repellat quaerat doloremque explicabo, obcaecati autem minima iusto, iure rem. Quia, accusantium! Facilis aliquid, iure est quis dolorem cum.
+          </div> 
         </div>
       </section>
 
