@@ -20,7 +20,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 export const Route = createFileRoute("/signup")({
-  head: () => ({ meta: [{ title: "Create account · KoboWise" }] }),
+  head: () => ({ meta: [{ title: "Create account · budgetGenie" }] }),
   component: SignupPage,
 });
 
@@ -50,7 +50,7 @@ function SignupPage() {
       toast.error(error.message);
       return;
     }
-    toast.success("Account created! Welcome to KoboWise.");
+    toast.success("Account created! Welcome to budgetGenie.");
     navigate({ to: "/dashboard" });
   };
 
@@ -73,7 +73,7 @@ function SignupPage() {
         <div className="relative max-w-md text-white">
           <div className="flex items-center gap-2 mb-6">
             <Sparkles className="h-8 w-8" />
-            <span className="text-2xl font-bold">KoboWise</span>
+            <span className="text-2xl font-bold">budgetGenie</span>
           </div>
           <h2 className="text-4xl font-bold leading-tight">Start your journey to financial clarity.</h2>
           <ul className="mt-6 space-y-2 text-white/80 text-sm">
@@ -91,7 +91,7 @@ function SignupPage() {
             <div className="h-9 w-9 rounded-lg bg-gradient-brand flex items-center justify-center">
               <Sparkles className="h-5 w-5 text-white" />
             </div>
-            <span className="font-bold text-lg">KoboWise</span>
+            <span className="font-bold text-lg">budgetGenie</span>
           </div>
           <h1 className="text-2xl font-bold">Create your account</h1>
           <p className="text-sm text-muted-foreground mt-1">Free to start. No credit card required.</p>

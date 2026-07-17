@@ -19,7 +19,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 export const Route = createFileRoute("/login")({
-  head: () => ({ meta: [{ title: "Sign in · KoboWise" }] }),
+  head: () => ({ meta: [{ title: "Sign in · budgetGenie" }] }),
   component: LoginPage,
 });
 
@@ -67,7 +67,7 @@ function LoginPage() {
         <div className="relative max-w-md text-white">
           <div className="flex items-center gap-2 mb-6">
             <Sparkles className="h-8 w-8" />
-            <span className="text-2xl font-bold">KoboWise</span>
+            <span className="text-2xl font-bold">budgetGenie</span>
           </div>
           <h2 className="text-4xl font-bold leading-tight">Smart budgeting for the urban hustle.</h2>
           <p className="mt-4 text-white/80">
@@ -82,7 +82,7 @@ function LoginPage() {
             <div className="h-9 w-9 rounded-lg bg-gradient-brand flex items-center justify-center">
               <Sparkles className="h-5 w-5 text-white" />
             </div>
-            <span className="font-bold text-lg">KoboWise</span>
+            <span className="font-bold text-lg">budgetGenie</span>
           </div>
           <h1 className="text-2xl font-bold">Sign in</h1>
           <p className="text-sm text-muted-foreground mt-1">Enter your details to access your dashboard.</p>

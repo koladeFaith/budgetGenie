@@ -90,13 +90,18 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           mobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0",
         )}
       >
-        <div className={cn("flex items-center gap-2 px-5 h-16 border-b border-sidebar-border", collapsed && "justify-center px-2")}>
+        <div
+          className={cn(
+            "flex items-center gap-2 px-5 h-16 border-b border-sidebar-border",
+            collapsed && "justify-center px-2",
+          )}
+        >
           <div className="h-9 w-9 rounded-lg bg-sidebar-primary flex items-center justify-center shrink-0">
             <Sparkles className="h-5 w-5 text-sidebar-primary-foreground" />
           </div>
           {!collapsed && (
             <div className="leading-tight">
-              <div className="font-semibold text-base">KoboWise</div>
+              <div className="font-semibold text-base">budgetGenie</div>
               <div className="text-[11px] text-sidebar-foreground/60">Smart budgeting</div>
             </div>
           )}
@@ -132,7 +137,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             onClick={() => setCollapsed((v) => !v)}
             className="hidden md:flex w-full items-center justify-center gap-2 rounded-lg py-2 text-xs text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-foreground transition"
           >
-            <ChevronLeft className={cn("h-4 w-4 transition-transform", collapsed && "rotate-180")} />
+            <ChevronLeft
+              className={cn("h-4 w-4 transition-transform", collapsed && "rotate-180")}
+            />
             {!collapsed && "Collapse"}
           </button>
         </div>
@@ -142,7 +149,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <div className="flex-1 flex flex-col min-w-0">
         <header className="sticky top-0 z-30 h-16 border-b border-border bg-card/80 backdrop-blur flex items-center justify-between px-4 md:px-6">
           <div className="flex items-center gap-3">
-            <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileOpen(true)}>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setMobileOpen(true)}
+            >
               <Menu className="h-5 w-5" />
             </Button>
             <h1 className="text-lg font-semibold capitalize">
@@ -152,7 +164,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
           <div className="flex items-center gap-2">
             <DropdownMenu onOpenChange={handleNotificationsOpen}>
-
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" className="relative">
                   <Bell className="h-5 w-5" />
@@ -163,7 +174,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                   )}
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" sideOffset={8} collisionPadding={12} className="w-[calc(100vw-1.5rem)] max-w-sm sm:w-80">
+              <DropdownMenuContent
+                align="end"
+                sideOffset={8}
+                collisionPadding={12}
+                className="w-[calc(100vw-1.5rem)] max-w-sm sm:w-80"
+              >
                 <DropdownMenuLabel>Notifications</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 {alerts.length === 0 && (
@@ -173,9 +189,16 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 )}
                 {alerts.slice(0, 8).map((a) => (
                   <DropdownMenuItem key={a.id} className="flex flex-col items-start gap-0.5 py-2.5">
-                    <span className={cn("text-xs font-medium uppercase tracking-wide",
-                      a.alert_type === "anomaly" ? "text-destructive" :
-                      a.alert_type === "budget" ? "text-warning" : "text-teal")}>
+                    <span
+                      className={cn(
+                        "text-xs font-medium uppercase tracking-wide",
+                        a.alert_type === "anomaly"
+                          ? "text-destructive"
+                          : a.alert_type === "budget"
+                            ? "text-warning"
+                            : "text-teal",
+                      )}
+                    >
                       {a.alert_type}
                     </span>
                     <span className="text-sm">{a.message}</span>
@@ -192,7 +215,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 <button className="flex items-center gap-2 rounded-full hover:bg-accent p-1 pr-3 transition">
                   <Avatar className="h-8 w-8">
                     <AvatarImage src={profile?.avatar_url ?? undefined} />
-                    <AvatarFallback className="bg-teal text-teal-foreground text-xs">{initials}</AvatarFallback>
+                    <AvatarFallback className="bg-teal text-teal-foreground text-xs">
+                      {initials}
+                    </AvatarFallback>
                   </Avatar>
                   <span className="hidden sm:inline text-sm font-medium">
                     {profile?.full_name ?? user?.email?.split("@")[0]}

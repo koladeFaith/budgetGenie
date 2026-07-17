@@ -9,9 +9,9 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "KoboWise — AI budgeting in ₦ for urban Nigeria" },
+      { title: "budgetGenie — AI budgeting in ₦ for urban Nigeria" },
       { name: "description", content: "Track spending, set budgets, and get AI insights tailored to life in urban Nigeria. Built for young adults who want financial clarity in ₦." },
-      { property: "og:title", content: "KoboWise — AI budgeting in ₦" },
+      { property: "og:title", content: "budgetGenie — AI budgeting in ₦" },
       { property: "og:description", content: "Track spending, set budgets, and get AI-driven insights in Naira." },
     ],
   }),
@@ -35,7 +35,7 @@ function Landing() {
             <div className="h-9 w-9 rounded-lg bg-gradient-brand flex items-center justify-center">
               <Sparkles className="h-5 w-5 text-white" />
             </div>
-            <span className="font-bold text-lg">KoboWise</span>
+            <span className="font-bold text-lg">budgetGenie</span>
           </div>
           <div className="flex items-center gap-2">
             <Button asChild variant="ghost" size="sm">
@@ -59,7 +59,7 @@ function Landing() {
           <br />Powered by AI.
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground">
-          KoboWise tracks your income and spending, flags unusual transactions,
+          budgetGenie tracks your income and spending, flags unusual transactions,
           predicts next month's expenses, and gives you smart insights — all in ₦.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -95,7 +95,7 @@ function Landing() {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} KoboWise · Built with care for Nigerian urban life
+        © {new Date().getFullYear()} budgetGenie · Built with care for Nigerian urban life
       </footer>
     </div>
   );
