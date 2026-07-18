@@ -12,7 +12,7 @@ import { categoryTotals, inMonth, monthlyTotals, forecastNext } from "@/lib/anal
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/analytics")({
-  head: () => ({ meta: [{ title: "Analytics · KoboWise" }] }),
+  head: () => ({ meta: [{ title: "Analytics · budgetGenie" }] }),
   component: () => <ProtectedLayout><AnalyticsPage /></ProtectedLayout>,
 });
 
@@ -260,7 +260,7 @@ function AnalyticsPage() {
             })}
           </div>
         )}
-      </div>
+      </div> 
     </div>
   );
 }

@@ -19,7 +19,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CURRENCY_SYMBOLS } from "@/lib/format";
 
 export const Route = createFileRoute("/settings")({
-  head: () => ({ meta: [{ title: "Settings · KoboWise" }] }),
+  head: () => ({ meta: [{ title: "Settings · " }] }),
   component: () => <ProtectedLayout><SettingsPage /></ProtectedLayout>,
 });
 

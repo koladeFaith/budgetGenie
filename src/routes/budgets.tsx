@@ -25,7 +25,7 @@ import {
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/budgets")({
-  head: () => ({ meta: [{ title: "Budgets · KoboWise" }] }),
+  head: () => ({ meta: [{ title: "Budgets · budgetGenie" }] }),
   component: () => <ProtectedLayout><BudgetsPage /></ProtectedLayout>,
 });
 
@@ -244,6 +244,6 @@ function BudgetsPage() {
           </form>
         </DialogContent>
       </Dialog>
-    </div>
+    </div> 
   );
 }

@@ -19,7 +19,7 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/dashboard")({
-  head: () => ({ meta: [{ title: "Dashboard · KoboWise" }] }),
+  head: () => ({ meta: [{ title: "Dashboard · budgetGenie" }] }),
   component: () => <ProtectedLayout><DashboardPage /></ProtectedLayout>,
 });
 
@@ -126,7 +126,7 @@ function DashboardPage() {
         <Button asChild className="bg-teal hover:bg-teal/90 text-teal-foreground">
           <Link to="/transactions">Add transaction <ArrowRight className="h-4 w-4 ml-1" /></Link>
         </Button>
-      </div>
+      </div> 
 
       {/* Stat cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">

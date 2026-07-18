@@ -152,7 +152,7 @@ declare module '@tanstack/react-router' {
     }
     '/settings': {
       id: '/settings'
-      path: '/settings'
+      path: '/settings' 
       fullPath: '/settings'
       preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport

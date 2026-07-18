@@ -34,7 +34,7 @@ import { cn } from "@/lib/utils";
 import type { Transaction } from "@/lib/types";
 
 export const Route = createFileRoute("/transactions")({
-  head: () => ({ meta: [{ title: "Transactions · KoboWise" }] }),
+  head: () => ({ meta: [{ title: "Transactions · " }] }),
   component: () => <ProtectedLayout><TransactionsPage /></ProtectedLayout>,
 });
 
