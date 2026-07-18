@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
-import { Sparkles } from "lucide-react";
+import { Eye, EyeOff, Sparkles } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
@@ -28,12 +28,19 @@ function SignupPage() {
   const navigate = useNavigate();
   const { user, loading: authLoading } = useAuth();
   const [submitting, setSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
 
-  useEffect(() => { if (!authLoading && user) navigate({ to: "/dashboard" }); }, [authLoading, user, navigate]);
+  useEffect(() => {
+    if (!authLoading && user) navigate({ to: "/dashboard" });
+  }, [authLoading, user, navigate]);
 
   const onSubmit = async (data: FormData) => {
     setSubmitting(true);
@@ -75,7 +82,9 @@ function SignupPage() {
             <Sparkles className="h-8 w-8" />
             <span className="text-2xl font-bold">budgetGenie</span>
           </div>
-          <h2 className="text-4xl font-bold leading-tight">Start your journey to financial clarity.</h2>
+          <h2 className="text-4xl font-bold leading-tight">
+            Start your journey to financial clarity.
+          </h2>
           <ul className="mt-6 space-y-2 text-white/80 text-sm">
             <li>✓ Auto-categorized transactions</li>
             <li>✓ Real-time budget tracking</li>
@@ -94,33 +103,68 @@ function SignupPage() {
             <span className="font-bold text-lg">budgetGenie</span>
           </div>
           <h1 className="text-2xl font-bold">Create your account</h1>
-          <p className="text-sm text-muted-foreground mt-1">Free to start. No credit card required.</p>
+          <p className="text-sm text-muted-foreground mt-1">
+            Free to start. No credit card required.
+          </p>
 
           <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-4">
             <div>
               <Label htmlFor="full_name">Full name</Label>
               <Input id="full_name" {...register("full_name")} className="mt-1" />
-              {errors.full_name && <p className="text-xs text-destructive mt-1">{errors.full_name.message}</p>}
+              {errors.full_name && (
+                <p className="text-xs text-destructive mt-1">{errors.full_name.message}</p>
+              )}
             </div>
             <div>
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" autoComplete="email" {...register("email")} className="mt-1" />
-              {errors.email && <p className="text-xs text-destructive mt-1">{errors.email.message}</p>}
+              <Input
+                id="email"
+                type="email"
+                autoComplete="email"
+                {...register("email")}
+                className="mt-1"
+              />
+              {errors.email && (
+                <p className="text-xs text-destructive mt-1">{errors.email.message}</p>
+              )}
             </div>
             <div>
               <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" autoComplete="new-password" {...register("password")} className="mt-1" />
-              {errors.password && <p className="text-xs text-destructive mt-1">{errors.password.message}</p>}
+              <div className="relative mt-1">
+                <Input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  autoComplete="new-password"
+                  {...register("password")}
+                  className="pr-12"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  className="absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground hover:text-foreground"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
+              </div>
+              {errors.password && (
+                <p className="text-xs text-destructive mt-1">{errors.password.message}</p>
+              )}
             </div>
-            <Button type="submit" disabled={submitting} className="w-full bg-navy hover:bg-navy/90 text-navy-foreground">
+            <Button
+              type="submit"
+              disabled={submitting}
+              className="w-full bg-navy hover:bg-navy/90 text-navy-foreground"
+            >
               {submitting ? "Creating account..." : "Create account"}
             </Button>
           </form>
 
-
           <p className="text-sm text-center mt-6 text-muted-foreground">
             Already have an account?{" "}
-            <Link to="/login" className="text-teal font-medium hover:underline">Sign in</Link>
+            <Link to="/login" className="text-teal font-medium hover:underline">
+              Sign in
+            </Link>
           </p>
         </div>
       </div>
