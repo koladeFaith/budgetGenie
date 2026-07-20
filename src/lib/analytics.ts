@@ -31,7 +31,8 @@ export function forecastNext(monthlyTotals: number[]): number {
   const xs = window.map((_, i) => i);
   const meanX = rollingAverage(xs);
   const meanY = rollingAverage(window);
-  let num = 0, den = 0;
+  let num = 0,
+    den = 0;
   for (let i = 0; i < n; i++) {
     num += (xs[i] - meanX) * (window[i] - meanY);
     den += (xs[i] - meanX) ** 2;
@@ -62,11 +63,22 @@ export function safeToSpendDaily(
   const avgIncome = rollingAverage(incomes);
   // Fixed bills this month
   const fixedSpent = txns
-    .filter((t) => t.type === "expense" && t.category_id && fixedBillsCategoryIds.includes(t.category_id) && inMonth(t, y, m))
+    .filter(
+      (t) =>
+        t.type === "expense" &&
+        t.category_id &&
+        fixedBillsCategoryIds.includes(t.category_id) &&
+        inMonth(t, y, m),
+    )
     .reduce((s, t) => s + Number(t.amount), 0);
   // Variable spent already
   const varSpent = txns
-    .filter((t) => t.type === "expense" && (!t.category_id || !fixedBillsCategoryIds.includes(t.category_id)) && inMonth(t, y, m))
+    .filter(
+      (t) =>
+        t.type === "expense" &&
+        (!t.category_id || !fixedBillsCategoryIds.includes(t.category_id)) &&
+        inMonth(t, y, m),
+    )
     .reduce((s, t) => s + Number(t.amount), 0);
   const monthlyBuffer = Math.max(0, avgIncome - fixedSpent - monthlySavingsGoal - varSpent);
   const daysInMonth = new Date(y, m, 0).getDate();
@@ -162,10 +174,18 @@ export function generateInsights(
   }
 
   // Savings rate change
-  const totalIn = thisMonth.filter((t) => t.type === "income").reduce((s, t) => s + Number(t.amount), 0);
-  const totalOut = thisMonth.filter((t) => t.type === "expense").reduce((s, t) => s + Number(t.amount), 0);
-  const prevIn = prevMonth.filter((t) => t.type === "income").reduce((s, t) => s + Number(t.amount), 0);
-  const prevOut = prevMonth.filter((t) => t.type === "expense").reduce((s, t) => s + Number(t.amount), 0);
+  const totalIn = thisMonth
+    .filter((t) => t.type === "income")
+    .reduce((s, t) => s + Number(t.amount), 0);
+  const totalOut = thisMonth
+    .filter((t) => t.type === "expense")
+    .reduce((s, t) => s + Number(t.amount), 0);
+  const prevIn = prevMonth
+    .filter((t) => t.type === "income")
+    .reduce((s, t) => s + Number(t.amount), 0);
+  const prevOut = prevMonth
+    .filter((t) => t.type === "expense")
+    .reduce((s, t) => s + Number(t.amount), 0);
   if (totalIn > 0 && prevIn > 0) {
     const rate = ((totalIn - totalOut) / totalIn) * 100;
     const prevRate = ((prevIn - prevOut) / prevIn) * 100;
@@ -239,7 +259,9 @@ export function recommendInvestments(
     const mm = d.getMonth() + 1;
     const inMo = txns.filter((t) => inMonth(t, yy, mm));
     incomes.push(inMo.filter((t) => t.type === "income").reduce((s, t) => s + Number(t.amount), 0));
-    expenses.push(inMo.filter((t) => t.type === "expense").reduce((s, t) => s + Number(t.amount), 0));
+    expenses.push(
+      inMo.filter((t) => t.type === "expense").reduce((s, t) => s + Number(t.amount), 0),
+    );
   }
   const avgIncome = rollingAverage(incomes);
   const avgExpense = rollingAverage(expenses);
@@ -264,16 +286,18 @@ export function recommendInvestments(
 
   // Nothing to recommend yet
   if (avgIncome <= 0 && avgExpense <= 0) {
-    return [{
-      id: "starter",
-      title: "Log a month of income & expenses",
-      platform: "KoboWise",
-      type: "Savings",
-      riskLevel: "Low",
-      suggestedMonthly: 0,
-      expectedReturn: "—",
-      reason: "Recommendations get smarter once we see at least one full month of activity.",
-    }];
+    return [
+      {
+        id: "starter",
+        title: "Log a month of income & expenses",
+        platform: "budgetGenie",
+        type: "Savings",
+        riskLevel: "Low",
+        suggestedMonthly: 0,
+        expectedReturn: "—",
+        reason: "Recommendations get smarter once we see at least one full month of activity.",
+      },
+    ];
   }
 
   // 1) Emergency fund first — always, sized to 3× avg expense
@@ -300,7 +324,8 @@ export function recommendInvestments(
       riskLevel: "Low",
       suggestedMonthly: Math.round(disposable * 0.25),
       expectedReturn: "~8–10% p.a.",
-      reason: "Your income varies month to month. Park surplus in a flexible wallet to cover lean months without selling investments.",
+      reason:
+        "Your income varies month to month. Park surplus in a flexible wallet to cover lean months without selling investments.",
     });
   }
 
@@ -314,7 +339,8 @@ export function recommendInvestments(
       riskLevel: "Low",
       suggestedMonthly: Math.round(disposable * 0.3),
       expectedReturn: "~18–22% p.a.",
-      reason: "Government-backed, beats inflation, no stress. Ideal for the bulk of conservative savings right now.",
+      reason:
+        "Government-backed, beats inflation, no stress. Ideal for the bulk of conservative savings right now.",
     });
   }
 
@@ -342,7 +368,8 @@ export function recommendInvestments(
       riskLevel: "Medium",
       suggestedMonthly: Math.round(disposable * 0.15),
       expectedReturn: "~8–12% p.a. in USD",
-      reason: "Hedge against naira depreciation. Even ₦20k/month compounds meaningfully over years.",
+      reason:
+        "Hedge against naira depreciation. Even ₦20k/month compounds meaningfully over years.",
     });
   }
 
@@ -354,7 +381,7 @@ export function recommendInvestments(
       platform: "PiggyVest Target Savings",
       type: "Goal",
       riskLevel: "Low",
-      suggestedMonthly: Math.round(totalSpend * funShare * 0.1 / 3),
+      suggestedMonthly: Math.round((totalSpend * funShare * 0.1) / 3),
       expectedReturn: "~10% p.a.",
       reason: `${Math.round(funShare * 100)}% of your spend is on entertainment, owambe & aso-ebi. Auto-deduct 10% of that to a locked goal — you won't notice it.`,
     });
@@ -365,7 +392,7 @@ export function recommendInvestments(
     recs.push({
       id: "review-bills",
       title: "Review subscriptions & data plans first",
-      platform: "KoboWise budgets",
+      platform: "budgetGenie budgets",
       type: "Savings",
       riskLevel: "Low",
       suggestedMonthly: 0,
